@@ -39,8 +39,11 @@ RSpec.describe NutrientesEugenio do
       expect(@manzana.sal).to eq(1)
     end
     it "tiene un metodo para obtener los datos formateados" do
-      expect(@manzana.to_s).to eq("manzana: 1 g grasa de los cuales saturados: 1, 1 g hidratos de carbono de los cuales azucares: 1, 1 g proteinas,
-       1 g sal")
+      expect(@manzana.to_s).to eq("manzana:
+      1 g grasa de los cuales saturados: 1
+      1 g hidratos de carbono de los cuales azucares: 1
+      1 g proteinas
+      1 g sal")
     end
   end
   

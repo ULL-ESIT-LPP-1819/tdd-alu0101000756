@@ -14,5 +14,13 @@ class Alimento
         @proteina = proteina
         @sal = sal
     end
+    
+    def to_s
+        "#{@nombre}:
+      #{@grasas} g grasa de los cuales saturados: #{@g_sat}
+      #{@h_car} g hidratos de carbono de los cuales azucares: #{@azucar}
+      #{@proteina} g proteinas
+      #{@sal} g sal"
+    end
 end
 
