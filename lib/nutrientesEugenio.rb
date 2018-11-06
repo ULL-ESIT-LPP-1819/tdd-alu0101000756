@@ -1,5 +1,12 @@
 require "nutrientesEugenio/version"
 
-module NutrientesEugenio
-  # Your code goes here...
+
+
+class Alimento 
+    attr_reader :nombre
+      
+    def initialize(nombre)
+        @nombre = nombre
+    end
 end
+

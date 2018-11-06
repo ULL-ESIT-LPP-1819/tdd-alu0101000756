@@ -1,11 +1,12 @@
+require "spec_helper"
 RSpec.describe NutrientesEugenio do
   it "has a version number" do
     expect(NutrientesEugenio::VERSION).not_to be nil
   end
   
   before :all do
-    @manzana = NutrientesEugenio.new("manzana", 10, 10, 10)
-    @pera = NutrientesEugenio.new("pera", 1, 2, 3)
+    @manzana = Alimento.new("manzana")
+    @pera = Alimento.new("pera")
   end
 
   it "does something useful" do
