@@ -5,8 +5,8 @@ RSpec.describe NutrientesEugenio do
   end
   
   before :all do
-    @manzana = Alimento.new("manzana",1, 1,1,1)
-    @pera = Alimento.new("pera",1,1,1 ,1)
+    @manzana = Alimento.new("manzana",1, 1,1,1,1)
+    @pera = Alimento.new("pera",1,1,1 ,1,1)
   end
 
   it "does something useful" do
@@ -15,7 +15,7 @@ RSpec.describe NutrientesEugenio do
   
    context "Elementos básicos del alimento" do
     it "Tiene los atributos necesarios" do
-      expect(@manzana).to have_attributes(:nombre => "manzana", :grasas => 1, :g_sat => 1, :h_car => 1, :azucar => 1)
+      expect(@manzana).to have_attributes(:nombre => "manzana", :grasas => 1, :g_sat => 1, :h_car => 1, :azucar => 1, :proteina =>1)
     end
     it "Tiene un método para obtener el nombre" do
       expect(@manzana.nombre).to eq("manzana")
@@ -31,6 +31,9 @@ RSpec.describe NutrientesEugenio do
     end
     it "tiene un metodo para obtener los gramos de azucar" do
       expect(@manzana.azucar).to eq(1)
+    end
+    it "tiene un metodo para obtener los gramos de proteina" do
+      expect(@manzana.proteina).to eq(1)
     end
   end
   
