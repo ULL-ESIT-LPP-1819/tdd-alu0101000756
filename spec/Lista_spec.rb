@@ -42,5 +42,10 @@ RSpec.describe Lista do
         expect(@list1.head.next.value).to eq(2)
         expect(@list1.head.next.next.value).to eq(3)
     end
+    it "puede extraer el nodo de la cabeza" do
+        expect(@list1.pop_head).to be_nil
+        @list1.push_head(5)
+        expect(@list1.pop_head).to eq(5)
+    end
 end
 end
