@@ -36,5 +36,11 @@ RSpec.describe Lista do
         @list1.push_tail(10)
         expect(@list1.tail.value).to eq(10)
     end
+        it "puede insertar varios nodos" do
+        @list1.push([1,2,3])
+        expect(@list1.head.value).to eq(1)
+        expect(@list1.head.next.value).to eq(2)
+        expect(@list1.head.next.next.value).to eq(3)
+    end
 end
 end
