@@ -29,11 +29,22 @@ class Lista
             @head = nuevo
         end
     end
-        def each
+    def each
         x = @head
         while(x != nil)
             yield x.value
             x = x.next
         end
+    end
+    def push_tail(x)
+        if(@tail == nil)
+            @tail = Node.new(x, nil, nil)
+            @head = @tail
+        else
+            nuevo = Node.new(x, nil, nil)
+            nuevo.prev = @tail
+            @tail.next = nuevo
+            @tail = nuevo
         end
+    end
 end
