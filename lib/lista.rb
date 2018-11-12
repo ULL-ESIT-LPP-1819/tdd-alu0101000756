@@ -67,4 +67,19 @@ class Lista
         end
         x.value
     end
+    def pop_tail()
+        if(@tail == nil)
+            return nil
+        end
+        
+        x = @tail
+        @tail = @tail.prev
+        if(@tail == nil)
+            @head = nil
+        else
+            @tail.next = nil
+            x.prev = nil
+        end
+        x.value
+    end
 end
