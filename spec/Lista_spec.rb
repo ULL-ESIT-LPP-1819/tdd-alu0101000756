@@ -28,5 +28,9 @@ RSpec.describe Lista do
         i += 1
       end
     end
+        it "puede insertar un nodo por la cabeza" do
+        @list1.push_head(15)
+        expect(@list1.head.value).to eq(15)
+    end
 end
 end
