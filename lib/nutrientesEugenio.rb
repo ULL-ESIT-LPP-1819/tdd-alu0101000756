@@ -2,7 +2,7 @@ require "nutrientesEugenio/version"
 
 
 
-class Alimento 
+class Alimento include Comparable
     attr_reader :nombre, :grasas, :g_sat, :h_car, :azucar, :proteina, :sal
       
     def initialize(nombre, grasas, g_sat, h_car, azucar, proteina, sal)
@@ -22,5 +22,15 @@ class Alimento
       #{@proteina} g proteinas
       #{@sal} g sal"
     end
+
+    
+    def kcal
+        @proteina * 4 + @h_car * 4 + @grasas * 9
+    end
+    
+    def <=>(other)
+        kcal <=> other.kcal
+    end
+    
 end
 

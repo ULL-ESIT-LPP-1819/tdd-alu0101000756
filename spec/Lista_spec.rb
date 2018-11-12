@@ -52,5 +52,23 @@ RSpec.describe Lista do
         @list1.push_head(10)
         expect(@list1.pop_tail).to eq(10)
     end
+    it "puede tener alimentos como nodo" do
+        @nodo2 = Alimento.new("manzana",1, 1,1,1,1,1)
+        @list1.push_head(@nodo2)
+        expect(@list1.pop_head.nombre).to eq("manzana")
+    end
+    it "ordena alimentos por valor de sal" do
+        @nodo2 = Alimento.new("manzana",1, 1,1,1,1,20)
+        @nodo3 = Alimento.new("pera",1, 1,1,1,1,0)
+        @nodo4 = Alimento.new("caca",1,1,1,1,1,365)
+        @list1.push_head(@nodo2)
+        @list1.push_head(@nodo3)
+        @list1.push_head(@nodo4)
+        @lista2 = @list1.ordenar_por_sal
+        @lista2.each{
+            |i| puts(i)
+        }
+        expect(@lista2.pop_head.sal).to eq(0)
+    end
 end
 end

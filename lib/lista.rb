@@ -6,6 +6,12 @@ require "nutrientesEugenio/version"
 # @attr_accessor any value Informacion contenida en el nodo
 # @attr_accessor Node next Nodo siguiente con el que esta conectado
 # @attr_accessor Node prev Nodo previo con el que esta conectado
+class Array
+    def swap(a,b)
+        self[a], self[b] = self[b], self[a]
+    end
+end
+
 Node = Struct.new(:value, :next, :prev)
 
 # Representación de una lista doblemente enlazada de nodos
@@ -81,5 +87,26 @@ class Lista
             x.prev = nil
         end
         x.value
+    end
+    def ordenar_por_sal
+        rvector = []
+        j = 0
+        each do
+            |i| rvector[j] = i
+            j +=1
+        end
+        begin
+        intercambio = false
+        (rvector.count-1).times do |i|
+                if rvector[i].sal > rvector[i+1].sal  # Si se cumple la condición, entonces intercambiamos.
+                        rvector.swap(i,i+1)
+                        intercambio = true
+                end # if
+                next
+        end # times
+        end while intercambio == true 
+        rlist = Lista.new()
+        rlist.push(rvector)
+        rlist
     end
 end
