@@ -32,5 +32,9 @@ RSpec.describe Lista do
         @list1.push_head(15)
         expect(@list1.head.value).to eq(15)
     end
+        it "puede insertar un nodo por la cola" do
+        @list1.push_tail(10)
+        expect(@list1.tail.value).to eq(10)
+    end
 end
 end
