@@ -72,9 +72,9 @@ RSpec.describe Lista do
     end
     
     it "ordena por sal" do
-        @nodo2 = Alimento.new("manzana",1, 1,1,1,1,20)
-        @nodo3 = Alimento.new("pera",1, 1,1,1,1,0)
-        @nodo4 = Alimento.new("caca",1,1,1,1,1,365)
+        @nodo2 = Alimento.new("manzana",0.23, 0.03,19.06,14.34,0.36,0.001)
+        @nodo3 = Alimento.new("pera",0.2, 0.01,25.66,16.27,0.63,0.002)
+        @nodo4 = Alimento.new("Big mac",24,9.2,45,2.9,22,0.9)
         @list1.push_head(@nodo2)
         @list1.push_head(@nodo3)
         @list1.push_head(@nodo4)
@@ -82,7 +82,7 @@ RSpec.describe Lista do
         @lista2.each{
             |i| puts(i)
         }
-        expect(@lista2[0].sal).to eq(0)
+        expect(@lista2[0].sal).to eq(0.001)
     end
 end
 end
