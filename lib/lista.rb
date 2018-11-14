@@ -134,4 +134,8 @@ class Lista
         rlist.push(rvector)
         rlist
     end
+    
+    def to_s
+        each {|i| puts i}
+    end
 end

@@ -32,5 +32,13 @@ class Alimento include Comparable
         kcal <=> other.kcal
     end
     
+    def cantidad_sal
+       if(sal < 0.6)
+           return "poca"
+       else
+           return "mucha"
+       end
+    end
+    
 end
 
