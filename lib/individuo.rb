@@ -12,4 +12,20 @@ class Individuo < IMC
             super(a,b,c,d)
         end
     end
+    
+    def cat_peso
+        
+        if(calcular_imc < 18.5)
+            return "Bajo peso"
+        elsif(calcular_imc < 24.9)
+            return "Saludable"
+        elsif(calcular_imc < 29.9)
+            return "Sobrepeso"
+        elsif(calcular_imc < 39.9)
+            return "Obesidad"
+        else 
+            return "Obesidad Extrema"
+        end
+            
+    end
 end
