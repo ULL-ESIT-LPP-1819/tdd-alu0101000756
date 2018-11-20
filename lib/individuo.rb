@@ -1,0 +1,5 @@
+
+
+class Individuo < IMC
+    
+end
