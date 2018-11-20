@@ -1,6 +1,8 @@
 require "bundler/setup"
 require "nutrientesEugenio"
 require "lista"
+require "individuo"
+require "imc"
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure

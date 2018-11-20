@@ -1,3 +1,5 @@
+require "nutrientesEugenio/version"
+
 class IMC
     attr_reader :peso, :altura, :edad, :sexo
     

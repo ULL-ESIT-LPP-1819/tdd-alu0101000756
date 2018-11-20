@@ -1,3 +1,5 @@
+require "imc"
+
 module NutrientesEugenio
   VERSION = "0.1.0"
 end
@@ -7,7 +9,7 @@ class Lista
   VERSION = "0.1.0"
 end
 
-class Individuo
+class Individuo < IMC
   #Version de la clase Individuo
   VERSION = "0.1.0"
 end
