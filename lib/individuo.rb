@@ -15,7 +15,9 @@ class Individuo < IMC
     
     def cat_peso
         
-        if(calcular_imc < 18.5)
+        if(!t_obesidad)
+            return "Sin datos recogidos"
+        elsif(calcular_imc < 18.5)
             return "Bajo peso"
         elsif(calcular_imc < 24.9)
             return "Saludable"
