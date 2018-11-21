@@ -136,6 +136,8 @@ class Lista
     end
     
     def to_s
-        each {|i| puts i}
+        s = ""
+        each {|i| s += "#{i.to_s}\n"}
+        s
     end
 end
