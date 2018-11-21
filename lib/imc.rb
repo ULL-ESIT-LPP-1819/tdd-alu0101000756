@@ -18,4 +18,14 @@ class IMC
         (1.2*calcular_imc)+(0.23*@edad)-(10.8*@sexo)-5.4
     end
         
+    def to_s
+        rval = ""
+        rval += " pesa #{@peso} kilos , mide #{@altura} metros, tiene #{@edad} años y es"
+            if(sexo == 1)
+                rval+= " un hombre"
+            else
+                rval+= " una mujer"
+            end
+        rval
+    end
 end

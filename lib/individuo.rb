@@ -33,12 +33,7 @@ class Individuo < IMC
     def to_s
         rval = "#{@nombre}"
         if(t_obesidad)
-            rval += " pesa #{@peso} kilos , mide #{@altura} metros, tiene #{@edad} años y es"
-            if(sexo == 1)
-                rval+= " un hombre"
-            else
-                rval+= " una mujer"
-            end
+            rval += super
         end
         rval
     end
