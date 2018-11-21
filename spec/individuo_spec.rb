@@ -29,8 +29,11 @@ RSpec.describe Individuo do
             expect(@a[0].is_a?(Individuo)).to eq(true)
         end
         it "categoriza segun imc" do
+            puts @lst.head.value
             expect(@lst.head.value.cat_peso).to eq("Saludable")
         end
-            
+        it "tiene un metodo to_s" do
+            expect(@a[1].to_s).to eq("Eugenio pesa 73 kilos , mide 1.82 metros, tiene 25 años y es un hombre")
+        end
     end
 end

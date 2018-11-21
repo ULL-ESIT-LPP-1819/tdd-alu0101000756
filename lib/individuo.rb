@@ -2,6 +2,7 @@ require "nutrientesEugenio/version"
 
 
 class Individuo < IMC
+        include Comparable
     attr_reader :nombre, :paciente, :t_obesidad
     
     def initialize(nombre, paciente, t_obesidad, a, b, c, d)
@@ -14,7 +15,6 @@ class Individuo < IMC
     end
     
     def cat_peso
-        
         if(!t_obesidad)
             return "Sin datos recogidos"
         elsif(calcular_imc < 18.5)
@@ -28,6 +28,22 @@ class Individuo < IMC
         else 
             return "Obesidad Extrema"
         end
-            
+    end
+    
+    def to_s
+        rval = "#{@nombre}"
+        if(t_obesidad)
+            rval += " pesa #{@peso} kilos , mide #{@altura} metros, tiene #{@edad} años y es"
+            if(sexo == 1)
+                rval+= " un hombre"
+            else
+                rval+= " una mujer"
+            end
+        end
+        rval
+    end
+    
+    def <=>(other)
+        calcular_imc <=> other.calcular_imc
     end
 end
