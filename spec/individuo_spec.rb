@@ -37,4 +37,11 @@ RSpec.describe Individuo do
             expect(@a[1].to_s).to eq("Eugenio pesa 73 kilos , mide 1.82 metros, tiene 25 años y es un hombre")
         end
     end
+    context "comparable" do
+        it "puede compararse" do
+            expect(@a[1] > @a[0]).to eq(false)
+            expect(@a[1] == @a[0]).to eq(true)
+            expect(@a[1] < @a[0]).to eq(false)
+        end
+    end
 end
