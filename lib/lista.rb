@@ -24,6 +24,10 @@ class Lista
     include Enumerable
     attr_reader :head, :tail
     
+    # Inserción por la cabeza de la lista
+    # @param [any] x valor del nuevo nodo
+    #
+    # @return [Node] Devuelve el head
     def push_head(x)
         if(@head == nil)
             @head = Node.new(x, nil, nil)
@@ -35,6 +39,10 @@ class Lista
             @head = nuevo
         end
     end
+    
+    # Método para la enumeración de los nodos de la lista
+    #
+    # @return [Node] devuelve los nodos que conforman la lista
     def each
         x = @head
         while(x != nil)
@@ -42,6 +50,11 @@ class Lista
             x = x.next
         end
     end
+    
+    # Inserción por la cola de la lista
+    # @param [any] x valor del nuevo nodo
+    #
+    # @return [Node] Devuelve el tail
     def push_tail(x)
         if(@tail == nil)
             @tail = Node.new(x, nil, nil)
@@ -53,11 +66,19 @@ class Lista
             @tail = nuevo
         end
     end
+    
+    # Inserción por la cola de la lista de varios nodos
+    # @param [Array<any>] x valores de los nuevos nodos
+    #
+    # @return [Node] Devuelve el tail
     def push(x)
         x.each{
             |i| push_tail(i)
         }
     end
+    # Extracción del primer nodo de la lista
+    #
+    # @return [any, nil] devuelve el valor guardado en el primer nodo o nil si no hay nodos en la lista
     def pop_head()
         if(@head == nil)
             return nil
@@ -73,6 +94,10 @@ class Lista
         end
         x.value
     end
+    
+    # Extracción del último nodo de la lista
+    #
+    # @return [any, nil] devuelve el valor guardado en el último nodo o nil si no hay nodos en la lista
     def pop_tail()
         if(@tail == nil)
             return nil
@@ -89,6 +114,9 @@ class Lista
         x.value
     end
     
+    # Ordena los alimentos en base a sus  calorias
+    #
+    # @return [vector] devuelve un vector ordenado por calorias
     def ordenar
         rvector = []
         j = 0
@@ -111,6 +139,9 @@ class Lista
         rlist
     end
     
+    # Ordena los alimentos en base a un bloque
+    #
+    # @return [vector] devuelve un vector ordenado por el bloque dado
     def ordenar_por
         rvector = []
         j = 0
@@ -135,6 +166,9 @@ class Lista
         rlist
     end
     
+    # Convierte el objeto a una cadena de caracteres
+    #
+    # @return [String] devuelve la lista como un string
     def to_s
         s = ""
         each {|i| s += "#{i.to_s}\n"}
