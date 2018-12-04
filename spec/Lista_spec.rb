@@ -97,4 +97,26 @@ RSpec.describe Lista do
         expect(@list1.pop_head.cantidad_sal).to eq("poca")
     end
 end
+    context "Es enumerable" do
+        it "puede hacer los metodos de enumerable" do
+            @nodo2 = Alimento.new("manzana",0.23, 0.03,19.06,14.34,0.36,0.001)
+            @nodo3 = Alimento.new("pera",0.2, 0.01,25.66,16.27,0.63,0.002)
+            @nodo4 = Alimento.new("Big mac",24,9.2,45,2.9,22,0.9)
+            @list1.push_head(@nodo2)
+            @list1.push_head(@nodo3)
+            @list1.push_head(@nodo4)
+            vect = []
+            vect = @list1.sort
+            expect(vect[0].sal).to eq(0.001)
+            vect = @list1.sort_by{ |x| x.grasas}
+            expect(vect[0].sal).to eq(0.002)
+            alim = @list1.max
+            expect(alim.sal).to eq(0.9)
+            alim = @list1.min
+            expect(alim.sal).to eq(0.001)
+            vect = @list1.collect{ |x| x.nombre}
+            expect(vect[0]).to eq("Big mac")
+        end
+            
+    end
 end
