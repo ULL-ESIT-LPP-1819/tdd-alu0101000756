@@ -47,5 +47,12 @@ RSpec.describe NutrientesEugenio do
     end
   end
   
+  context "comparable" do
+    it "puede compararse" do
+      expect(@manzana > @pera).to eq(false)
+      expect(@manzana == @pera).to eq(true)
+      expect(@manzana < @pera).to eq(false)
+    end
+  end
   
 end
