@@ -39,6 +39,9 @@ RSpec.describe Individuo do
         it "tiene un metodo para saber el peso ideal" do
             expect(@a[0].peso_ideal).to eq(74)
         end
+        it "puede calcular TMB" do
+           expect(@a[0].tmb).to eq(730 + 1137.5 - 125 + 5 ) 
+        end
     end
     context "comparable" do
         it "puede compararse" do
