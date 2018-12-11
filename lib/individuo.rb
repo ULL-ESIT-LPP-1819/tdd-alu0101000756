@@ -66,4 +66,12 @@ class Individuo < IMC
     def <=>(other)
         calcular_imc <=> other.calcular_imc
     end
+    
+    # Metodo para calcular peso ideal
+    #
+    # @return [Number] peso ideal del individuo
+    def peso_ideal
+        ((@altura * 100) - 150) * 0.75 + 50
+    end    
+    
 end

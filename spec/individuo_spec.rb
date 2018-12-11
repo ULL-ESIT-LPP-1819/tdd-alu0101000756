@@ -36,6 +36,9 @@ RSpec.describe Individuo do
             puts @lst
             expect(@a[1].to_s).to eq("Eugenio pesa 73 kilos , mide 1.82 metros, tiene 25 años y es un hombre")
         end
+        it "tiene un metodo para saber el peso ideal" do
+            expect(@a[0].peso_ideal).to eq(74)
+        end
     end
     context "comparable" do
         it "puede compararse" do
