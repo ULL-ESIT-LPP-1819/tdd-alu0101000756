@@ -81,4 +81,11 @@ class Individuo < IMC
         10*@peso + ((@altura * 100) * 6.25) - 5 * @edad + 5 + ((1-@sexo) * 166)
     end
     
+    # Metodo para calcular el efecto termogeno
+    #
+    # @return [Number] efecto termogeno del individuo
+    def efecto_termogeno
+        tmb * 0.1
+    end
+    
 end
