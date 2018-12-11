@@ -104,4 +104,12 @@ class Individuo < IMC
         end
     end
     
+    # Metodo para calcular el gasto total del individuo
+    # @param [String] tipo de actividad fisica realizado
+    #
+    # @return [Number] el gasto total del individuo del individuo
+    def gasto_energetico_total(cantidad)
+        tmb + efecto_termogeno + gasto_actividad_fisica(cantidad)
+    end
+    
 end

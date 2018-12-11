@@ -43,6 +43,8 @@ RSpec.describe Individuo do
            expect(@a[0].tmb).to eq(730 + 1137.5 - 125 + 5 )
            expect(@a[0].efecto_termogeno).to eq(@a[0].tmb * 0.1)
            expect(@a[0].gasto_actividad_fisica("ligera")).to eq(@a[0].tmb * 0.12)
+           puts @a[0].gasto_energetico_total("ligera")
+           expect(@a[0].gasto_energetico_total("ligera")).to eq(@a[0].tmb + @a[0].efecto_termogeno + @a[0].gasto_actividad_fisica("ligera"))
         end
     end
     context "comparable" do
