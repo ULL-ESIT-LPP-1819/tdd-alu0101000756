@@ -42,6 +42,7 @@ RSpec.describe Individuo do
         it "puede calcular TMB" do
            expect(@a[0].tmb).to eq(730 + 1137.5 - 125 + 5 )
            expect(@a[0].efecto_termogeno).to eq(@a[0].tmb * 0.1)
+           expect(@a[0].gasto_actividad_fisica("ligera")).to eq(@a[0].tmb * 0.12)
         end
     end
     context "comparable" do

@@ -88,4 +88,20 @@ class Individuo < IMC
         tmb * 0.1
     end
     
+    # Metodo para calcular el gasto de la actividad fisica
+    # @param [String] tipo de actividad fisica realizado
+    #
+    # @return [Number] el gasto de la actividad fisica del individuo
+    def gasto_actividad_fisica(cantidad)
+        if (cantidad == "reposo")
+            return 0
+        elsif (cantidad == "ligera")
+            return tmb * 0.12
+        elsif (cantidad == "moderada")
+            return tmb * 0.27
+        else
+            return tmb * 0.54
+        end
+    end
+    
 end
