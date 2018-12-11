@@ -72,6 +72,13 @@ class Individuo < IMC
     # @return [Number] peso ideal del individuo
     def peso_ideal
         ((@altura * 100) - 150) * 0.75 + 50
-    end    
+    end
+    
+    # Metodo para calcular la tmb
+    #
+    # @return [Number] tmb del individuo
+    def tmb
+        10*@peso + ((@altura * 100) * 6.25) - 5 * @edad + 5 + ((1-@sexo) * 166)
+    end
     
 end
