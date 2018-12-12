@@ -135,10 +135,10 @@ end
             menu.push_head(@nodo4)
             menu.push_head(@nodo4)
             puts @nodo4.kcal * 5 -1 +1
-            expect(menu.is_enough(@a[0],"ligera")).to eq(false)
+            expect(menu.is_enough(@a[0],"reposo")).to eq(false)
             expect(menu.is_enough(@a[1],"ligera")).to eq(false)
-            expect(menu.is_enough(@a[2],"ligera")).to eq(true)
-            expect(menu.is_enough(@a[3],"ligera")).to eq(false)
+            expect(menu.is_enough(@a[2],"moderada")).to eq(true)
+            expect(menu.is_enough(@a[3],"intensa")).to eq(false)
             expect(menu.is_enough(@a[4],"ligera")).to eq(true)
         end
     end
