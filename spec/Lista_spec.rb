@@ -134,7 +134,7 @@ end
             menu.push_head(@nodo4)
             menu.push_head(@nodo4)
             menu.push_head(@nodo4)
-            puts @nodo4.kcal * 5
+            puts @nodo4.kcal * 5 -1 +1
             expect(menu.is_enough(@a[0],"ligera")).to eq(false)
             expect(menu.is_enough(@a[1],"ligera")).to eq(false)
             expect(menu.is_enough(@a[2],"ligera")).to eq(true)
