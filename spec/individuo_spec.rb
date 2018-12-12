@@ -4,10 +4,11 @@ RSpec.describe Individuo do
   before :each do
       @a = []
       @a[0] = Individuo.new("Eugenio", false, true, 73, 1.82, 25, 1)
-      @a[1] = Individuo.new("Eugenio", false, true, 73, 1.82, 25, 1)
-      @a[2] = Individuo.new("Eugenio", false, true, 73, 1.82, 25, 1)
-      @a[3] = Individuo.new("Eugenio", false, true, 73, 1.82, 25, 1)
-      @a[4] = Individuo.new("Eugenio", false, true, 73, 1.82, 25, 1)
+      @a[1] = Individuo.new("Tatiana", false, true, 52, 1.69, 20, 0)
+      @a[2] = Individuo.new("Daniela", false, true, 73, 1.67, 22, 0)
+      @a[3] = Individuo.new("Ghaz", false, false, 72, 1.77, 22, 1)
+      @a[4] = Individuo.new("Greg", false, true, 140, 1.81, 22, 1)
+      @a[5] = Individuo.new("Jesus", false, true, 100, 1.81, 25, 1)
       @lst = Lista.new
       @lst.push(@a)
   end
@@ -30,11 +31,16 @@ RSpec.describe Individuo do
         end
         it "categoriza segun imc" do
             puts @lst.head.value
-            expect(@lst.head.value.cat_peso).to eq("Saludable")
+            expect(@lst.pop_head.cat_peso).to eq("Saludable")
+            expect(@lst.pop_head.cat_peso).to eq("Bajo peso")
+            expect(@lst.pop_head.cat_peso).to eq("Sobrepeso")
+            expect(@lst.pop_head.cat_peso).to eq("Sin datos recogidos")
+            expect(@lst.pop_head.cat_peso).to eq("Obesidad Extrema")
+            expect(@lst.pop_head.cat_peso).to eq("Obesidad")
         end
         it "tiene un metodo to_s" do
             puts @lst
-            expect(@a[1].to_s).to eq("Eugenio pesa 73 kilos , mide 1.82 metros, tiene 25 años y es un hombre")
+            expect(@a[0].to_s).to eq("Eugenio pesa 73 kilos , mide 1.82 metros, tiene 25 años y es un hombre")
         end
         it "tiene un metodo para saber el peso ideal" do
             expect(@a[0].peso_ideal).to eq(74)
@@ -50,8 +56,8 @@ RSpec.describe Individuo do
     context "comparable" do
         it "puede compararse" do
             expect(@a[1] > @a[0]).to eq(false)
-            expect(@a[1] == @a[0]).to eq(true)
-            expect(@a[1] < @a[0]).to eq(false)
+            expect(@a[1] == @a[0]).to eq(false)
+            expect(@a[1] < @a[0]).to eq(true)
         end
     end
 end
