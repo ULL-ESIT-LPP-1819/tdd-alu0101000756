@@ -3,6 +3,7 @@ require "nutrientesEugenio"
 require "lista"
 require "individuo"
 require "imc"
+require "menu"
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
