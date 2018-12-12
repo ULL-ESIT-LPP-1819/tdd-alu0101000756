@@ -35,8 +35,8 @@ RSpec.describe Individuo do
             expect(@lst.pop_head.cat_peso).to eq("Bajo peso")
             expect(@lst.pop_head.cat_peso).to eq("Sobrepeso")
             expect(@lst.pop_head.cat_peso).to eq("Sin datos recogidos")
-            expect(@lst.pop_head.cat_peso).to eq("Obesidad Extrema")
             expect(@lst.pop_tail.cat_peso).to eq("Obesidad")
+            expect(@lst.pop_tail.cat_peso).to eq("Obesidad Extrema")
         end
         it "tiene un metodo to_s" do
             puts @lst
