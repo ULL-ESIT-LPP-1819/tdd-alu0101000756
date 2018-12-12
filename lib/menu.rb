@@ -7,9 +7,14 @@ require "nutrientesEugenio/version"
 # @since 1.0.0
 class Menu < Lista
     
-    def is_enough(persona, cantidad)
+    def kcal
         x = collect{|a| a.kcal}
         y = x.inject(0, :+)
-        return (persona.gasto_energetico_total(cantidad) <= y * 1.1) && (persona.gasto_energetico_total(cantidad) >= y * 0.9)
+        y
+    end
+    
+    def is_enough(persona, cantidad)
+        x = kcal
+        return (persona.gasto_energetico_total(cantidad) <= x * 1.1) && (persona.gasto_energetico_total(cantidad) >= x * 0.9)
     end
 end
