@@ -6,7 +6,7 @@ require "nutrientesEugenio/version"
 # @author Eugenio Jose Gonzalez Luis
 # @since 1.0.0
 class Menu < Lista
-    
+    include Comparable
     # metodo que calcula el coste calorico de un menu
     #
     # @return [Number] Coste calorico del menu
@@ -24,5 +24,12 @@ class Menu < Lista
     def is_enough(persona, cantidad)
         x = kcal
         return (persona.gasto_energetico_total(cantidad) <= x * 1.1) && (persona.gasto_energetico_total(cantidad) >= x * 0.9)
+    end
+    # Metodo para comparar dos menus
+    # @param [Individuo] otro menu a comparar
+    #
+    # @return [-1,0,1] -1 si es menor, 0 si son iguales, 1 si es mayor
+    def <=>(other)
+        kcal <=> other.kcal
     end
 end

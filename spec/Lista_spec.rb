@@ -1,4 +1,5 @@
 require "spec_helper"
+require 'benchmark'
 
 RSpec.describe Lista do
   before :each do
@@ -141,5 +142,98 @@ end
             expect(menu.is_enough(@a[3],"intensa")).to eq(false)
             expect(menu.is_enough(@a[4],"ligera")).to eq(true)
         end
+        it "puede compararse" do
+            menu = Menu.new()
+            menu1 = Menu.new()
+            @nodo4 = Alimento.new("Big mac",24,9.2,45,2.9,22,0.9)
+            menu.push_head(@nodo4)
+            menu.push_head(@nodo4)
+            menu.push_head(@nodo4)
+            menu.push_head(@nodo4)
+            menu.push_head(@nodo4)
+            menu1.push_head(@nodo4)
+            expect(menu1 > menu).to eq(false)
+            expect(menu1 == menu).to eq(false)
+            expect(menu1 < menu).to eq(true)
+        end
     end
+    context "Ordenaciones array"
+        before :each do
+            def bubblesort_for (array)!
+                for i in 0..array.size 
+                    for j in i+1..array.size-1    
+                        array[i], array[j] = array[j], array[i] if(array[i] > array[j])
+                    end
+                end
+                array
+            end
+            def bubblesort_each (array)!
+                array.each do
+                    swap_count = 0
+                    array.each_with_index do |a, index|
+                        break if index == (array.length - 1)
+                        if a > array[index + 1]
+                            array[index],array[index + 1] = array[index + 1], array[index]
+                            swap_count += 1
+                        end
+                    end
+                    break if swap_count == 0
+                end
+                array
+            end
+            def bubblesort_for_lista(lista)!
+                x = lista.collect{|y| y}
+                bubblesort_for(x)
+            end
+            def bubblesort_each_lista(lista)!
+                x = lista.collect{|y| y}
+                bubblesort_each(x)
+            end
+    @nodo4 = Alimento.new("Big mac",24,9.2,45,2.9,22,0.9)
+    @menu = Menu.new()
+    @menu.push_head(@nodo4)
+    @menu1 = @menu.dup
+    @menu1.push_head(@nodo4)
+    @menu2 = @menu1.dup
+    @menu2.push_head(@nodo4)
+    @menu3 = @menu2.dup
+    @menu3.push_head(@nodo4)
+    @menu4 = @menu3.dup
+    @menu4.push_head(@nodo4)
+    @menu5 = @menu4.dup
+    @menu5.push_head(@nodo4)
+    @menu6 = @menu5.dup
+    @menu6.push_head(@nodo4)
+    @menu7 = @menu6.dup
+    @menu7.push_head(@nodo4)
+    @menu8 = @menu7.dup
+    @menu8.push_head(@nodo4)
+    @menu9 = @menu8.dup
+    @menu9.push_head(@nodo4)
+    @L = [@menu,@menu1,@menu2,@menu3,@menu4,@menu5,@menu6,@menu7,@menu8,@menu9]
+    @a = []
+    @a[0] = Individuo.new("Eugenio", false, true, 73, 1.82, 25, 1)
+    @a[1] = Individuo.new("Tatiana", false, true, 54, 1.69, 20, 0)
+    @a[2] = Individuo.new("Daniela", false, true, 73, 1.67, 22, 0)
+    @a[3] = Individuo.new("Ghaz", false, true, 75, 1.79, 22, 1)
+    @a[4] = Individuo.new("Greg", false, true, 87, 1.81, 22, 1)
+    @a[5] = Individuo.new("Eugenio", false, true, 73, 1.82, 25, 1)
+    @a[6] = Individuo.new("Tatiana", false, true, 54, 1.69, 20, 0)
+    @a[7] = Individuo.new("Daniela", false, true, 73, 1.67, 22, 0)
+    @a[8] = Individuo.new("Ghaz", false, true, 75, 1.79, 22, 1)
+    @a[9] = Individuo.new("Greg", false, true, 87, 1.81, 22, 1)
+    @lista = Lista.new()
+    @lista.push(@a)
+  end
+  
+  it "Benchmark" do
+    Benchmark.bmbm do |test|
+      test.report("Con el metodo sort\n")  { @L.dup.sort }
+      test.report("Con el metodo for\n") {bubblesort_for(@L.dup)}
+      test.report("Con el metodo each \n") {bubblesort_each(@L.dup)}
+      test.report("Con el metodo sort (lista) \n") {@lista.dup.sort}
+      test.report("Con el metodo for (lista) \n") {bubblesort_for_lista(@lista.dup)}
+      test.report("Con el metodo each (lista) \n") {bubblesort_each_lista(@lista.dup)}
+    end
+  end
 end
