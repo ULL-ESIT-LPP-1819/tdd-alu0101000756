@@ -6,6 +6,7 @@ require "lista"
 require "individuo"
 require "imc"
 require "menu"
+require "dietaDia"
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
