@@ -79,7 +79,6 @@ class DietaDia
             |x|
             porcion = x[1] if x[0] == options[:porcion]
         end
-        endnaranja peso medionaranja peso medio
         multiplier = porcion / options[:gramos]
         @desayuno.push_head(Alimento.new(options[:descripcion],options[:grasas] * multiplier,0,options[:carbohidratos] * multiplier,0,options[:proteinas] * multiplier,options[:sal] * multiplier))
     end
