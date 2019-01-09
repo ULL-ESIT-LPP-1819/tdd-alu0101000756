@@ -53,5 +53,10 @@ RSpec.describe DietaDia do
     it "Funciona" do
         puts @menu
         expect(@menu.kcal).to eq(948.12)
+        expect(@menu.kcal).to eq(@menu.kcal)
+        @a = Individuo.new("Eugenio", false, true, 73, 1.82, 25, 1)
+        expect(@menu.is_enough(@a,"reposo")).to eq(false)
+        @prueba = DietaDia.new("holi")
+        expect(@prueba.nombre).to eq("holi")
     end
 end
