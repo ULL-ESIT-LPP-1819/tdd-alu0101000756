@@ -12,7 +12,7 @@ RSpec.describe DietaDia do
                 :fibra => 2.3,
                 :sal => 0.06
             desayuno :descripcion => "Actimel",
-                :porcion => "1 porci´on",
+                :porcion => "1 porcion",
                 :gramos => 100,
                 :grasas => 3.4,
                 :carbohidratos => 4.4,
@@ -27,7 +27,8 @@ RSpec.describe DietaDia do
                 :fibra => 1.4,
                 :sal => 0.04
             almuerzo :descripcion => "Lentejas",
-                :porcion => "1/2 cuchar´on",
+                :porcion => "1/2 cucharon",
+                :gramos => 100,
                 :grasas => 0.4,
                 :carbohidratos => 20.0,
                 :proteinas => 9.0,
@@ -39,7 +40,8 @@ RSpec.describe DietaDia do
                 :grasas => 0.12,
                 :carbohidratos => 11.75,
                 :proteinas => 0.94,
-                :fibra => 2.4
+                :fibra => 2.4,
+                :sal => 0
             cena :descripcion => "Leche entera hacendado",
                 :porcion => "1 vaso",
                 :gramos => 100,
@@ -52,7 +54,7 @@ RSpec.describe DietaDia do
     end
     it "Funciona" do
         puts @menu
-        expect(@menu.kcal).to eq(948.12)
+        expect(@menu.kcal).to eq(900.0000000000001)
         expect(@menu.kcal == @menu.kcal).to eq(true)
         @a = Individuo.new("Eugenio", false, true, 73, 1.82, 25, 1)
         expect(@menu.is_enough(@a,"reposo")).to eq(false)

@@ -8,9 +8,16 @@ require "nutrientesEugenio/version"
 class DietaDia
     include Comparable
     
-    attr_reader :nombre, :desayuno, :almuerzo, :cena
+    attr_reader :nombre, :desayuno, :almuerzo, :cena, :conversiones
     
     def initialize(nombre, &bloque)
+        @conversiones = [
+            ["1 rodaja", 28],
+            ["1 porcion", 100],
+            ["1 taza", 200],
+            ["1/2 cucharon",20],
+            ["1 pieza", 150],
+            ["1 vaso", 100]]
         @nombre = nombre
         @desayuno = Menu.new()
         @almuerzo = Menu.new()
@@ -67,18 +74,35 @@ class DietaDia
     #Añade un desayuno
     #@param options información sobre el alimento
     def desayuno(options = {})
-        @desayuno.push_head(Alimento.new(options[:descripcion],options[:grasas],0,options[:carbohidratos],0,options[:proteinas],options[:sal]))
+        porcion = 0
+        @conversiones.each do
+            |x|
+            porcion = x[1] if x[0] == options[:porcion]
+        endnaranja peso medionaranja peso medio
+        multiplier = porcion / options[:gramos]
+        @desayuno.push_head(Alimento.new(options[:descripcion],options[:grasas] * multiplier,0,options[:carbohidratos] * multiplier,0,options[:proteinas] * multiplier,options[:sal] * multiplier))
     end
     
     #Añade un almuerzo
     #@param options información sobre el alimento
     def almuerzo(options = {})
-        @almuerzo.push_head(Alimento.new(options[:descripcion],options[:grasas],0,options[:carbohidratos],0,options[:proteinas],options[:sal]))
+        porcion = 0
+        @conversiones.each do
+            |x|
+            porcion = x[1] if x[0] == options[:porcion]
+        end
+        multiplier = porcion / options[:gramos]
+        @almuerzo.push_head(Alimento.new(options[:descripcion],options[:grasas] * multiplier,0,options[:carbohidratos] * multiplier,0,options[:proteinas] * multiplier,options[:sal] * multiplier))
     end
-    
     #Añade una cena
     #@param options información sobre el alimento
     def cena(options = {})
-        @cena.push_head(Alimento.new(options[:descripcion],options[:grasas],0,options[:carbohidratos],0,options[:proteinas],options[:sal]))
+        porcion = 0
+        @conversiones.each do
+            |x|
+            porcion = x[1] if x[0] == options[:porcion]
+        end
+        multiplier = porcion / options[:gramos]
+        @cena.push_head(Alimento.new(options[:descripcion],options[:grasas] * multiplier,0,options[:carbohidratos] * multiplier,0,options[:proteinas] * multiplier,options[:sal] * multiplier))
     end
 end
