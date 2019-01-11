@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    nutrientesEugenio (0.2.2)
+    nutrientesEugenio (0.2.3)
 
 GEM
   remote: https://rubygems.org/
